@@ -15,10 +15,14 @@ android/local.properties
 
 # Local LLM Weights & Portable Data (Never commit large binaries)
 *.gguf
+*.gguf.part
+*.part
 *.bin
 *.safetensors
 /models/
 /portable_data/
+/vibe_data/
+**/vibe_data/
 
 # SQLite Runtime Databases
 *.db

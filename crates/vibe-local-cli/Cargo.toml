@@ -1,0 +1,31 @@
+[package]
+name = "vibe-local-cli"
+description = "Vibe Local CLI and Vibe-Link HTTP server (127.0.0.1:20129) with LAN token auth, web leaderboard and UDP/mDNS discovery"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lib]
+name = "vibe_local_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vibe-local"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+clap.workspace = true
+tiny_http.workspace = true
+ureq.workspace = true
+url.workspace = true
+getrandom.workspace = true
+vibe-local-core.workspace = true
+vibe-local-engine.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

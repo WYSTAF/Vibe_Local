@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Framework Material dark theme; all real styling lives in Compose (Obsidian Dark). -->
+    <style name="Theme.VibeLocal" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/obsidian_background</item>
+        <item name="android:statusBarColor">@color/obsidian_background</item>
+        <item name="android:navigationBarColor">@color/obsidian_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

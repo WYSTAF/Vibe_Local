@@ -1,0 +1,23 @@
+[package]
+name = "vibe-local-core"
+description = "Hardware probing, MoE-vs-Dense recommendation, HF discovery, GGUF parsing and the unified benchmark catalog for Vibe Local"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+rusqlite.workspace = true
+ureq.workspace = true
+url.workspace = true
+getrandom.workspace = true
+
+[target.'cfg(any(target_os = "linux", target_os = "macos", target_os = "android"))'.dependencies]
+libc.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

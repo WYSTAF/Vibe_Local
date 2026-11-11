@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vibe Local</string>
+
+    <!-- Tabs -->
+    <string name="tab_scan">Scan &amp; Match</string>
+    <string name="tab_leaderboard">Leaderboard</string>
+    <string name="tab_vibemark">VibeMark</string>
+    <string name="tab_chat">Chat &amp; Link</string>
+
+    <!-- Global banners -->
+    <string name="banner_native_missing_title">Native engine not loaded</string>
+    <string name="banner_native_missing_detail">libvibe_local_jni.so could not be loaded (%1$s). Running in HTTP fallback mode against a remote Vibe-Link host. Configure the host in the Chat &amp; Link tab.</string>
+    <string name="banner_thermal_throttle">Device is warm (%1$s). Native governor throttles at 42°C.</string>
+    <string name="banner_thermal_paused">Thermal protection: inference paused (%1$s). Model unloaded; chat is blocked until the device cools down.</string>
+    <string name="banner_low_memory">Android reports low memory. Model loading is blocked until more RAM is free.</string>
+
+    <!-- Common -->
+    <string name="common_retry">Retry</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_copy">Copy</string>
+    <string name="common_copied">Copied to clipboard</string>
+    <string name="common_apply">Apply</string>
+    <string name="common_stop">Stop</string>
+    <string name="common_refresh">Refresh</string>
+    <string name="common_loading">Working…</string>
+    <string name="common_download">Download</string>
+    <string name="common_downloaded">Downloaded</string>
+    <string name="common_downloading">Downloading…</string>
+    <string name="common_error">Error</string>
+    <string name="common_unknown_error">Unknown error</string>
+    <string name="common_not_available">n/a</string>
+
+    <!-- Units -->
+    <string name="units_mb">%1$d MB</string>
+    <string name="units_gb">%1$.1f GB</string>
+    <string name="units_params_b">%1$.2f B params</string>
+    <string name="units_tok_s">%1$.1f tok/s</string>
+    <string name="units_ms">%1$.0f ms</string>
+    <string name="units_seconds">%1$.1f s</string>
+    <string name="units_celsius">%1$.1f°C</string>
+    <string name="units_x_speedup">%1$.2f× vs dense 7B</string>
+
+    <!-- Scan & Match -->
+    <string name="scan_button">Scan hardware &amp; match models</string>
+    <string name="scan_scanning">Scanning hardware…</string>
+    <string name="scan_hardware_section">Hardware</string>
+    <string name="scan_ram_total">Total RAM</string>
+    <string name="scan_ram_free">Free RAM</string>
+    <string name="scan_cpu">CPU</string>
+    <string name="scan_cpu_cores">Cores</string>
+    <string name="scan_cpu_flags">CPU flags</string>
+    <string name="scan_gpu_section">GPUs</string>
+    <string name="scan_no_gpus">No GPU reported by the engine.</string>
+    <string name="gpu_vendor">Vendor</string>
+    <string name="gpu_vram">VRAM</string>
+    <string name="gpu_backend">Backend</string>
+    <string name="scan_preferred_backend">Preferred backend</string>
+    <string name="scan_tier">Tier</string>
+    <string name="scan_os_arch">OS / arch</string>
+    <string name="scan_portable">Portable (USB OTG)</string>
+    <string name="scan_portable_available">Available at %1$s</string>
+    <string name="scan_portable_unavailable">Not available</string>
+    <string name="scan_verdict_title">MoE vs Dense verdict</string>
+    <string name="scan_verdict_moe">Mixture-of-Experts recommended</string>
+    <string name="scan_verdict_dense">Dense model recommended</string>
+    <string name="scan_candidates_title">Matched candidates</string>
+    <string name="scan_no_candidates">No candidates returned. Run a scan first.</string>
+    <string name="candidate_size">Size</string>
+    <string name="candidate_active_params">Active params</string>
+    <string name="candidate_total_params">Total params</string>
+    <string name="candidate_est_ram">Est. RAM</string>
+    <string name="candidate_fit">Fits in</string>
+    <string name="candidate_ngl">GPU layers (ngl)</string>
+    <string name="candidate_reasons">Why this model</string>
+    <string name="download_invalid_url">Refusing download: URL is not on https://huggingface.co/</string>
+    <string name="download_already_exists">Already in your models folder.</string>
+    <string name="download_failed">Download failed: %1$s</string>
+    <string name="download_import_failed">Downloaded, but moving into the models folder failed: %1$s</string>
+    <string name="download_complete">Saved to models folder.</string>
+    <string name="data_dir_title">Data directory</string>
+    <string name="data_dir_internal">Internal storage</string>
+    <string name="data_dir_choose_usb">Choose USB OTG folder…</string>
+    <string name="data_dir_reset">Use internal storage</string>
+    <string name="data_dir_saf_failed">Could not take persistent access to that folder.</string>
+
+    <!-- Leaderboard -->
+    <string name="lb_profile">Hardware profile</string>
+    <string name="lb_empty">No entries for this profile yet.</string>
+    <string name="lb_sort_quality">Quality</string>
+    <string name="lb_sort_power">Power / param</string>
+    <string name="lb_sort_params">Active params</string>
+    <string name="lb_sort_name">Name</string>
+    <string name="lb_sort_direction">Toggle sort direction</string>
+    <string name="lb_quality_score">Vibe quality</string>
+    <string name="lb_power_per_param">Power per parameter</string>
+    <string name="lb_active_params">Active params</string>
+    <string name="lb_total_params">Total params</string>
+    <string name="lb_pareto_optimal">Pareto optimal</string>
+    <string name="lb_pillar_scores">Per-pillar scores</string>
+    <string name="lb_open_hf">Hugging Face</string>
+    <string name="lb_device">Device</string>
+    <string name="lb_pareto_title">Quality vs active parameters</string>
+    <string name="lb_pareto_x">active params (B)</string>
+    <string name="lb_pareto_y">vibe quality score</string>
+    <string name="lb_pareto_empty">Run a scan or load entries to draw the Pareto frontier.</string>
+    <string name="lb_entries_count">%1$d entries</string>
+    <string name="profile_rx580_vulkan">RX 580 · Vulkan</string>
+    <string name="profile_nothing_phone_2a">Nothing Phone (2a)</string>
+    <string name="profile_i5_4690_ddr3">i5-4690 · DDR3</string>
+    <string name="profile_tesla_t4">Tesla T4</string>
+
+    <!-- VibeMark -->
+    <string name="vm_pick_model">Downloaded models</string>
+    <string name="vm_no_models">No .gguf files found in the models folder. Download one from Scan &amp; Match.</string>
+    <string name="vm_run">Run VibeMark (15 s budget)</string>
+    <string name="vm_running">Benchmarking…</string>
+    <string name="vm_elapsed">Elapsed: %1$d s</string>
+    <string name="vm_results_title">Measured result</string>
+    <string name="vm_prefill">Prefill</string>
+    <string name="vm_decode">Decode</string>
+    <string name="vm_ttft">Time to first token</string>
+    <string name="vm_peak_ram">Peak RAM</string>
+    <string name="vm_duration">Duration</string>
+    <string name="vm_provenance">Provenance</string>
+    <string name="vm_backend">Backend</string>
+    <string name="vm_engine">Engine</string>
+    <string name="vm_submit">Submit to leaderboard</string>
+    <string name="vm_submitting">Submitting…</string>
+    <string name="vm_submitted">Submitted. Thank you!</string>
+    <string name="vm_submit_failed">Submit failed: %1$s</string>
+    <string name="vm_submit_unavailable_http">Submitting requires the native engine; it is unavailable in HTTP fallback mode.</string>
+    <string name="vm_profile_label">Submit under profile</string>
+    <string name="vm_select_model_first">Select a model first.</string>
+
+    <!-- Chat -->
+    <string name="chat_hint">Message the local model…</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_empty">No messages yet. Load a model below, then say hello.</string>
+    <string name="chat_strip_think">Strip think blocks</string>
+    <string name="chat_you">You</string>
+    <string name="chat_assistant">Assistant</string>
+    <string name="chat_status_title">Engine status</string>
+    <string name="chat_loaded_model">Loaded model</string>
+    <string name="chat_none_loaded">None</string>
+    <string name="chat_backend">Backend</string>
+    <string name="chat_engine">Engine</string>
+    <string name="chat_thermal">Thermal</string>
+    <string name="chat_idle_timeout">Idle auto-unload</string>
+    <string name="chat_load_title">Load a model</string>
+    <string name="chat_load_button">Load</string>
+    <string name="chat_unload_button">Unload</string>
+    <string name="chat_loading_model">Loading model…</string>
+    <string name="chat_load_blocked_memory">Load blocked: only %1$d MB free; this model needs %2$d MB plus a 512 MB safety margin.</string>
+    <string name="chat_load_failed">Load failed: %1$s</string>
+    <string name="chat_pick_model">Pick a downloaded .gguf</string>
+    <string name="chat_paused_thermal">Inference is paused by the thermal governor. Let the device cool down.</string>
+    <string name="chat_ctx">Context length</string>
+    <string name="chat_ngl">GPU layers (ngl)</string>
+    <string name="chat_backend_override">Backend override</string>
+    <string name="chat_backend_auto">auto</string>
+
+    <!-- LAN worker -->
+    <string name="lan_title">Vibe-Link LAN worker</string>
+    <string name="lan_toggle">Serve this device on the LAN</string>
+    <string name="lan_starting">Starting server…</string>
+    <string name="lan_running">Worker online</string>
+    <string name="lan_stopped">Worker offline</string>
+    <string name="lan_token_label">Pairing token</string>
+    <string name="lan_ip_label">Device address</string>
+    <string name="lan_pairing_hint">In Vibe Router, add a worker with this address and token. All /api/* and /v1/* calls must send X-Vibe-Local-Token.</string>
+    <string name="lan_stop">Stop worker</string>
+    <string name="lan_start_failed">Could not start the LAN server: %1$s</string>
+    <string name="lan_native_required">LAN worker mode needs the native engine, which is not loaded.</string>
+    <string name="lan_no_ip">No LAN IPv4 address found. Connect to Wi-Fi first.</string>
+
+    <!-- Settings / fallback -->
+    <string name="settings_title">Connection &amp; idle settings</string>
+    <string name="settings_idle_timeout">Auto-unload after idle</string>
+    <string name="settings_idle_timeout_value">%1$d s</string>
+    <string name="settings_remote_host">Vibe-Link host (HTTP fallback)</string>
+    <string name="settings_remote_host_hint">http://192.168.1.50:20129</string>
+    <string name="settings_remote_token">Remote token (optional)</string>
+    <string name="settings_remote_token_hint">X-Vibe-Local-Token value</string>
+    <string name="settings_host_invalid">Enter a valid http(s) host, e.g. http://192.168.1.50:20129</string>
+    <string name="settings_saved">Settings saved.</string>
+
+    <!-- Foreground service -->
+    <string name="service_channel_name">Vibe-Link worker</string>
+    <string name="service_channel_desc">Keeps the on-device Vibe-Link server alive while LAN worker mode is enabled.</string>
+    <string name="service_notification_title">Vibe-Link worker active</string>
+    <string name="service_notification_text">Serving models on port %1$d. Tap to manage.</string>
+    <string name="service_stop_action">Stop worker</string>
+
+    <!-- Thermal status names (PowerManager.THERMAL_STATUS_*) -->
+    <string name="thermal_status_none">thermal status: none</string>
+    <string name="thermal_status_light">thermal status: light</string>
+    <string name="thermal_status_moderate">thermal status: moderate</string>
+    <string name="thermal_status_severe">thermal status: severe</string>
+    <string name="thermal_status_critical">thermal status: critical</string>
+    <string name="thermal_status_emergency">thermal status: emergency</string>
+    <string name="thermal_status_shutdown">thermal status: shutdown</string>
+
+    <!-- Errors -->
+    <string name="error_native_unavailable">Native engine unavailable and no HTTP fallback host configured.</string>
+    <string name="error_http_unreachable">Could not reach %1$s. Is the Vibe-Link server running?</string>
+    <string name="error_bad_response">Malformed response from the engine.</string>
+</resources>

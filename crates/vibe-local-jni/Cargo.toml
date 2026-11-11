@@ -1,0 +1,24 @@
+[package]
+name = "vibe-local-jni"
+description = "Android JNI and C-ABI bridge exposing Vibe Local hardware scan, recommendations, GGUF inspection, VibeMark, leaderboard and Vibe-Link server control"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lib]
+name = "vibe_local_jni"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+anyhow.workspace = true
+serde_json.workspace = true
+jni.workspace = true
+vibe-local-core.workspace = true
+vibe-local-engine.workspace = true
+vibe-local-cli.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+ureq.workspace = true

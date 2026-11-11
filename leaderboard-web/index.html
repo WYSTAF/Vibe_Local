@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Vibe Local leaderboard — 10-pillar GGUF quantization benchmarks across local hardware profiles. Power-per-parameter Pareto frontier, quant degradation curves, and a full pillar matrix.">
+  <title>Vibe Local — GGUF Benchmark Leaderboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237C5CFF'/%3E%3Cstop%20offset='1'%20stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23090A0F'/%3E%3Crect%20x='2'%20y='2'%20width='28'%20height='28'%20rx='6'%20fill='url(%23g)'/%3E%3Ctext%20x='16'%20y='22.5'%20font-size='17'%20text-anchor='middle'%20fill='%23090A0F'%20font-family='sans-serif'%20font-weight='800'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to leaderboard content</a>
+
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-blob aurora-violet"></div>
+    <div class="aurora-blob aurora-cyan"></div>
+    <div class="aurora-blob aurora-magenta"></div>
+    <div class="aurora-grain"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span>V</span></div>
+        <div class="brand-text">
+          <h1>Vibe Local <span class="brand-sub">Leaderboard</span></h1>
+          <p class="tagline">10-pillar GGUF quantization benchmark suite · local inference, measured honestly</p>
+        </div>
+      </div>
+      <div class="header-controls">
+        <div class="profile-picker">
+          <label class="profile-label" for="profile-select">Hardware profile</label>
+          <select id="profile-select" aria-describedby="profile-meta"></select>
+        </div>
+        <p id="profile-meta" class="profile-meta" aria-live="polite"></p>
+      </div>
+    </div>
+    <div id="connection-banner" class="banner banner-loading" role="status" aria-live="polite"></div>
+    <nav class="tabs" aria-label="Leaderboard views">
+      <div class="tablist" role="tablist" id="tablist" aria-label="Leaderboard views">
+        <button class="tab" type="button" role="tab" id="tab-pareto" aria-controls="panel-pareto" aria-selected="true" data-tab="pareto">
+          <span class="tab-glyph" aria-hidden="true">◠</span>Power / Parameter
+        </button>
+        <button class="tab" type="button" role="tab" id="tab-degradation" aria-controls="panel-degradation" aria-selected="false" tabindex="-1" data-tab="degradation">
+          <span class="tab-glyph" aria-hidden="true">↘</span>Quant Degradation
+        </button>
+        <button class="tab" type="button" role="tab" id="tab-matrix" aria-controls="panel-matrix" aria-selected="false" tabindex="-1" data-tab="matrix">
+          <span class="tab-glyph" aria-hidden="true">▦</span>10-Pillar Matrix
+        </button>
+        <button class="tab" type="button" role="tab" id="tab-submit" aria-controls="panel-submit" aria-selected="false" tabindex="-1" data-tab="submit">
+          <span class="tab-glyph" aria-hidden="true">＋</span>Submit Run
+        </button>
+        <span class="tab-ink" id="tab-ink" aria-hidden="true"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section id="stats-strip" class="stats-strip" aria-label="Summary statistics for the selected hardware profile"></section>
+
+    <div id="loading-state" class="loading-state" role="status">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading benchmark data…</p>
+    </div>
+
+    <div id="error-state" class="error-state" hidden>
+      <div class="error-card" role="alert">
+        <h2>Could not load leaderboard data</h2>
+        <p id="error-message"></p>
+        <p class="error-hint">The live API (<code>/api/leaderboard</code>) and the bundled catalog (<code>catalog.json</code>) are both unreachable. If you opened this file directly, serve the folder over HTTP (for example <code>python -m http.server</code>) and try again.</p>
+        <button type="button" class="btn btn-primary" id="retry-button">Retry connection</button>
+      </div>
+    </div>
+
+    <section class="panel" role="tabpanel" id="panel-pareto" aria-labelledby="tab-pareto" tabindex="0" hidden></section>
+    <section class="panel" role="tabpanel" id="panel-degradation" aria-labelledby="tab-degradation" tabindex="0" hidden></section>
+    <section class="panel" role="tabpanel" id="panel-matrix" aria-labelledby="tab-matrix" tabindex="0" hidden></section>
+    <section class="panel" role="tabpanel" id="panel-submit" aria-labelledby="tab-submit" tabindex="0" hidden></section>
+  </main>
+
+  <div id="detail-root"></div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-notice" role="note">
+        <span class="notice-dot" aria-hidden="true"></span>
+        <p><strong>Provenance notice.</strong> Entries marked <span class="badge badge-estimate">estimate</span> come from the seed catalog and are illustrative estimates, not measured results. <span class="badge badge-measured">measured</span> rows were run on the reference rig; <span class="badge badge-submitted">submitted</span> rows are community submissions pending review. Always re-benchmark on your own hardware before trusting a number.</p>
+      </div>
+      <div class="footer-weights" id="footer-weights" aria-label="Vibe quality score weights"></div>
+      <p class="footer-fine">Vibe Local · offline-first · no telemetry · keyboard: ←/→ switch tabs, Enter on a row opens details, Esc closes.</p>
+    </div>
+  </footer>
+</body>
+</html>
